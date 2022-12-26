@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "Katana Started...!"
 
-katana -list subdomains.txt -d 18 -jc -kf -aff -ef css,png,svg,ico,woff,gif -cos logout -do -nc -silent | tee katana.txt
+cat subdomains.txt | httpx | katana -d 18 -jc -kf -aff -ef css,png,svg,ico,woff,gif -cos logout -do -nc -silent | tee katana.txt
 
 echo "Katana Done...!"
 
@@ -25,6 +25,6 @@ touch All-Parameters.txt
 
 cat katana.txt gau.txt >> All-parameters.txt
 
-cat ParamSpider/output/* >> All-parameters.txt
+cat output/* >> All-parameters.txt
 
 echo "Finished...!"
