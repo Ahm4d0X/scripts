@@ -1,0 +1,5 @@
+waybackurls target.com | tee target.txt
+
+cat target.txt | gf xss | sed 's/=.*/=/' | sed 's/URL: //' | tee targetxss.txt
+
+dalfox -pipe
