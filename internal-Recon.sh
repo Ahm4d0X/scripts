@@ -1,20 +1,20 @@
 #!/bin/bash
 echo "Katana Started...!"
 
-katana -list $1 -d 18 -jc -kf -aff -ef css,png,svg,ico,woff,gif -cos logout -do -nc -silent | tee $1-katana.txt
+katana -list subdomains.txt -d 18 -jc -kf -aff -ef css,png,svg,ico,woff,gif -cos logout -do -nc -silent | tee katana.txt
 
 echo "Katana Done...!"
 
 echo "gau Started...!"
 
-cat $1 | gau --subs --providers wayback,commoncrawl,otx,urlscan --o gau-res.txt
+cat subdomains.txt | gau --subs --providers wayback,commoncrawl,otx,urlscan --o gau-res.txt
 
-cat gau-res.txt | sort -u | tee $1-gau.txt
+cat gau-res.txt | sort -u | tee gau.txt
 
 echo "gau Done...!"
 
 echo "paramspider Started...!"
-                    for sub in $(cat $1)
+                    for sub in $(cat subdomains.txt)
                     do
                             python3 ParamSpider/paramspider.py -d $sub --level high --exclude woff,css,png,svg,jpg
                     done
@@ -23,7 +23,7 @@ echo "paramspider Done...!"
 
 touch All-Parameters.txt
 
-cat $1-katana.txt $1-gau.txt >> All-parameters.txt
+cat katana.txt gau.txt >> All-parameters.txt
 
 cat ParamSpider/output/* >> All-parameters.txt
 
