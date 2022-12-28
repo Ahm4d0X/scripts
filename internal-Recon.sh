@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "Katana Started...!"
 
-cat subdomains.txt | httpx | katana -d 18 -jc -kf -aff -ef css,png,svg,ico,woff,gif -cos logout -do -nc -silent > katana.txt
+cat subdomains.txt | httpx | katana -d 18 -jc -kf -aff -ef css,png,svg,ico,woff,gif -do -nc -silent > katana.txt
 
 echo "Katana Done...!"
 
