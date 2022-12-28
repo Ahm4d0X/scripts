@@ -27,4 +27,6 @@ cat katana.txt gau.txt >> All-parameters.txt
 
 cat output/* >> All-parameters.txt
 
+cat All-parameters.txt | sort -u > parameters.txt
+
 echo "Finished...!"
